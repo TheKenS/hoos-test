@@ -1,12 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./counter.module.css";
 
-const Counter02: React.FC = () => {
+const Counter05: React.FC = () => {
   const [count, setCount] = useState<number>(0);
+  const savedCallback = useRef<any>();
+
+  useEffect(() => {
+    savedCallback.current = count;
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCount((count) => count + 1);
+      console.log("interval count" + count);
+
+      setCount(savedCallback.current + 1);
     }, 1000);
 
     return () => {
@@ -21,4 +28,4 @@ const Counter02: React.FC = () => {
   );
 };
 
-export default Counter02;
+export default Counter05;
