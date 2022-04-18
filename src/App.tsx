@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       {/* <Counter01 /> */}
-      <Counter04 />
+      <Counter02 />
 
     </div>
   );
